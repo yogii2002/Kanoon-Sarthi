@@ -1,0 +1,415 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Case Details - Kanoon Sarathi Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../static/assets/img/favicon.png" rel="icon">
+  <link href="../static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../static/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Kanoon Sarathi
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/Kanoon Sarathi-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+        
+    {% comment %} .breadcrumbs {
+      padding: 15px 0;
+      margin-top: 70px;
+      background: #EF8603;
+      min-height: 40px;
+  } {% endcomment %}
+   
+  .cta {
+    background: #ffffff;
+    padding: 80px 0;
+  }
+  
+  .cta h3 {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .cta p {
+    color: #000000;
+  }
+  
+  .cta .cta-btn {
+    font-family: "Times New Roman", Times, serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    color: #000000;
+    background: #ef6603;
+  }
+  
+  .cta .cta-btn:hover {
+    background: #fff;
+    color: #ef6603;
+  }
+   .download-link {
+    color: #fc8129;
+   }
+
+   .containers {
+     display: flex;
+   }
+
+   .right-column {
+    flex-basis: 70%;
+     padding: 20px;
+     
+   }
+
+   .left-column {
+    flex-basis: 30%;
+    color: white;
+    {% comment %} background-color: #2a29; {% endcomment %}
+    {% comment %} padding: 20px; {% endcomment %}
+   }
+   
+
+ </style>
+ <style>
+  /* Style for the box */
+  .fact-box {
+      display: block;
+      border: 1px solid gray;
+      padding: 10px;
+      margin-top: 5px;
+  }
+  p{
+    font-size: 20px;
+    margin: 20px 0px;
+  }
+  a{
+    color: ;
+
+  }
+  .green-box {
+    background-color: rgba(42, 44, 57, 0.9);
+    color: white;
+    padding: 30px;
+}
+.highlightpro {
+  background-color: yellow; /* Change to your desired highlight color */
+  color: black; /* Change to your desired text color */
+}
+
+.highlight {
+  background-color: lavender; /* Change to your desired highlight color */
+  color: black; /* Change to your desired text color */
+}
+</style>
+<script>
+  // JavaScript to toggle the display of the box
+  function toggleFactBox(factLabel , event) {
+    event.preventDefault();
+      
+      const factBox = document.getElementById(`fact-box-${factLabel}`);
+      factBox.style.display = factBox.style.display === 'none' ? 'block' : 'block';
+  }
+</script>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="{% url 'home'%}">Kanoon Sarathi</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="../static/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a style="color: ; font-size:18px;" class="nav-link scrollto " href="{% url 'login' %}">Home</a></li>
+          <li><a style="color: ; font-size:18px;" class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
+          <li><a style="color: ; font-size:18px;" class="nav-link scrollto " href="{% url 'login' %}">Home</a></li>
+          <li><a style="color: ; font-size:18px;" class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
+          {% comment %} <li><a class="nav-link scrollto" href="">Services</a></li> {% endcomment %}
+          <li><a style="color: ; font-size:18px;" class="nav-link scrollto active" href="{% url 'blog' %}">Legal Research</a></li>
+          {% comment %} <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li> {% endcomment %}
+          {% comment %} <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> {% endcomment %}
+          <li><a style="color: ; font-size:18px;" class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          {% include 'app/header-new.html' %}
+          <h2>Case Details</h2>
+          <ol>
+            <li style="color: ; font-size:18px;"><a href="{% url 'login' %} ">Home</a></li>
+            <li style="color: ; font-size:18px;">Case Details</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+<section id="cta" class="cta">
+  <div class="container">    
+    
+    <div class="section-title" data-aos="zoom-out">
+    
+      <p style=" text-align: center;">{{ name }}</p><br>
+      <p style=" text-align: center; font-size:25px;">{{ result.court }}</p>
+
+      
+    </div>
+    <p style="font-size:20px;"><a class="" id="download-pdf-button" href="#" download>Download as PDF</a> | <a class="simialr-cases" href="#" download>Find Similar Cases</a></p>
+    <section class="">
+      <div class="container">
+         
+          <div class="containers">
+             <div class="right-column">
+              
+           
+
+<h3>Petitioner: {{ petitioner.0 }}</h3><br>
+<h3>Respondent: {{ respondent.0 }}</h3><br>
+<p style="text-align: center;">Date Of Judgement: {{ date.0 }}</p><br>
+<p style="text-align: center;">Decision: {{ decision.0 }}</p><br>
+<p style="text-align: center;">Jurisdiction: {{ juridiction.0 }}</p><br>
+<p style="text-align: center;">Author Name: {{ author_name.0 }}</p><br>
+
+<h3>Case Facts</h3><br>
+
+{% comment %} <ol>
+  {% for facts_label in facts_labels %}
+    <li>{{ forloop.counter }}. {{ facts_label }}</li>
+  {% endfor %}
+</ol> {% endcomment %}
+{% for section, highlighted_section in highlighted_fact_sections.items %}
+    <p>
+      {{ forloop.counter }}.{{ highlighted_section|safe }}
+    </p>
+    {% endfor %}  
+
+  {% if cites %}
+    <p>Case Citations</p>
+
+    <ol>
+      {% for cite in cites %}
+        <li>{{ forloop.counter }}. {{ cite }}</li>
+      {% endfor %}
+    </ol>
+
+  {% endif %}
+  <br>
+  {% if stat %}
+<h3>Statutes:</h3>
+{% endif %}
+<ul>
+  {% for statute in stat %}
+    <p>{{ statute }}</p>
+  {% endfor %}
+</ul>
+
+<h3>Provisions:</h3>
+<ul>
+  {% for provision in provisions %}
+    <p>{{ provision }}</p>
+  {% endfor %}
+</ul>
+             </div>
+             
+            <div class="left-column">
+              <div class="green-box">
+                  
+                    
+                    <h3 style="color: white;">Case Details</h3>
+                  
+                
+                
+                {% if result.date %}
+                <p style="color: white;"><strong>Date:</strong> - {{ result.date }}</p>
+              {% endif %}
+              {% if result.court %}
+                <p style="color: white;"><strong>Court:</strong> - {{ result.court }}</p>
+              {% endif %}
+              {% if result.petitioner %}
+                <p style="color: white;"><strong>Petitioner:</strong> - <u><a style="color: lightskyblue;" href="{% url 'find_cases_for' %}?petitioner={{ result.petitioner|urlencode }}">{{ result.petitioner }}</a></u></p>
+              {% endif %}
+              {% if result.respondent %}
+                <p style="color: white;"><strong>Respondent:</strong> - <u><a style="color: lightskyblue;" href="{% url 'find_cases_for' %}?respondent={{ result.respondent|urlencode }}">{{ result.respondent }}</a></u></p>
+              {% endif %}
+              {% if result.decision %}
+                <p style="color: white;"><strong>Decision:</strong> - {{ result.decision }}</p>
+              {% endif %}
+              {% if result.author %}
+                <p style="color: white;"><strong>Author:</strong> - {{ result.author }}</p>
+              {% endif %}
+              {% if result.caseno %}
+                <p style="color: white;"><strong>Case No.:</strong> - {{ result.caseno }}</p>
+              {% endif %}
+              {% if judges %}
+                <p style="color: white;"><strong>Judges:</strong><br> 
+                  {% for obj in judges %}
+                    <u><a style="color: lightskyblue;" href="{% url 'find_cases_for' %}?judgename={{ obj|urlencode }}">{{ obj }}</a></u><br>
+                  {% endfor %}
+
+                </p>
+              {% else %}
+                <p></p>
+              {% endif %}
+              </div> 
+          </div>
+             
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Kanoon Sarathi</h3>
+      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Kanoon Sarathi</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Kanoon Sarathi-bootstrap-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../static/assets/vendor/aos/aos.js"></script>
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/assets/vendor/php-email-form/validate.js"></script>
+  <!-- Add this in the <head> section of your HTML -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../static/assets/js/main.js"></script>
+
+
+
+
+
+
+  <script>
+    {% comment %} document.getElementById("download-pdf-button").addEventListener("click", function () {
+        const element = document.body; // Choose the element you want to convert to PDF
+        const options = {
+            margin: 10,
+            filename: "your_page.pdf",
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+        };
+  
+        html2pdf().from(element).set(options).save();
+    }); {% endcomment %}
+  
+  
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.getElementById("download-pdf-button");
+      if (button) {
+          button.addEventListener("click", function () {
+              const element = document.body; // Target content
+              const options = {
+                  margin: 10,
+                  filename: "your_page.pdf",
+                  image: { type: "jpeg", quality: 0.98 },
+                  html2canvas: { scale: 2 },
+                  jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+              };
+  
+              html2pdf().from(element).set(options).save();
+          });
+      } else {
+          console.error("Button with ID 'download-pdf-button' not found.");
+      }
+  });
+  
+  </script>
+
+
+
+
+
+</body>
+
+</html>

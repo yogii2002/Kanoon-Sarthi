@@ -1,0 +1,369 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kanoon Sarathi</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../static/assets/img/favicon.png" rel="icon">
+  <link href="../static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../static/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Kanoon Sarathi
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/Kanoon Sarathi-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+    .info-button {
+      {% comment %} position: relative; {% endcomment %}
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1;
+      border: none;
+    }
+    
+    .info-button:hover {
+      background-color: #0056b3;
+    }
+    
+    .info-tooltip {
+      position: absolute;
+      z-index: 1;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      display: none;
+    }
+    
+    .info-button:hover .info-tooltip {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="{% url 'home'%}">Kanoon Sarathi</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="../static/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="{% url 'login' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'blog' %}">Services</a></li>
+          <li><a class="nav-link scrollto active " href="">Legal Research</a></li>
+          <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          {% comment %} <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> {% endcomment %}
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Advance Search</h2>
+          <ol>
+            <li><a href="{% url 'blog' %}">Legal Research</a></li>
+            <li>Advance Search</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <section class="inner-page">
+      <div class="container">
+        <br><br>
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Advance</h2>
+          <p>Fill in any of the fields to find a case</p>
+        </div>
+        <br>
+        
+        <form action="" method="POST" name="myForm">
+          {% csrf_token %}
+          {% comment %} <div class="form-left"> {% endcomment %}
+          <div class="row">
+          {% comment %} <div class="form-group col-md-6 mb-3">
+            <label for="InputName">Citation</label>
+            <input type="text" class="form-control" id="InputEmail" name="name" aria-describedby="emailHelp" placeholder="Enter Citation" 
+            >
+          </div> {% endcomment %}
+          <div class="form-group col-md-6">
+            <label for="InputEmail" >Searching Paramenter </label><button class="info-button">
+              i
+              <span class="info-tooltip">
+                    "AND": When using "AND" parameter, the search results will include only documents that contain all the specified search terms. It narrows down the results to documents that must have all the specified terms present. 
+                <br>
+                    "OR": On the other hand, "OR" parameter broadens the search results by including documents that contain any of the specified search terms. It retrieves documents that have at least one of the specified terms. 
+              </span>
+            </button>
+            <select name="job" id="InputJob" class="form-control" required/ >
+              <option value="" selected="False" name="parameter" style="display: none">Select Parameter </option> 
+              <option value="and" name="parameter" >AND</option>
+              <option value="or" name="parameter" >OR</option>
+              
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          {% comment %} <div class="form-group col-md-6 mb-3">
+            <label for="InputJob">Act </label>
+            <input type="text" class="form-control" id="InputEmail" name="name" aria-describedby="emailHelp" placeholder="Acts, Sections & Rules" 
+            >
+          </div> {% endcomment %}
+          <div class="form-group col-md-6 mb-3">
+            {% comment %} <label for="InputGender">Text Search </label>
+            <select name="text" id="textsearch" class="form-control" >
+              <option value="" selected="False" style="display: none">Select Text Search</option> 
+              <option value="Judgements">Entire Database</option>
+              <option value="Judgements">Judgements</option>
+              <option value="Headnotes">Headnotes</option>
+              <option value="Judgement Text">Judgement Text</option>
+              <option value="Articles">Articles</option>
+              <option value="Legislation">Legislation</option>
+              <option value="Dictionary">Dictionary</option>
+              <option value="E-Books">E-Books</option>
+              <option value="Act & Section">Act & Section</option>
+              <option value="Nominal">Nominal</option>
+            </select> {% endcomment %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6 mb-3">
+            <label for="InputDOB">Parties</label>
+            <input type="text" class="form-control" id="InputMobile" name="petitioner" aria-describedby="emailHelp" placeholder="Petitioner"
+            >
+          </div> 
+          <div class="form-group col-md-6 mb-3">
+            <label for="InputMobile"></label>
+            <input type="text" class="form-control" id="InputMobile" name="respondent" aria-describedby="emailHelp" placeholder="Respondent" 
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6 mb-3">
+            <label for="password1">Case Details</label><br>
+            <label for="InputEmail">Appeal Number</label>
+
+            <input type="text" class="form-control" name="appealno" id="password1" placeholder="Ex: Appeal no. 398 of 2008" >
+            {% comment %} <input type="text" class="form-control" name="cPassword" id="password2" placeholder="Appeal Year" ><br> {% endcomment %}
+            <label for="InputEmail">Court</label>
+
+            <input type="text" class="form-control" name="court" id="password2" placeholder="Ex: Supreme Court of India" >
+            <label for="InputEmail">Hon'ble Judge</label>
+
+            <input type="text" class="form-control" name="judge" id="password2" placeholder="Ex: S.B. Sinha" >
+          </div>
+          
+          <div class="form-group col-md-6 mb-3">
+            <br>
+            <label for="text"></label>
+            <input type="radio" name="decision" value="date" onclick="toggleInputBox('date')" checked> Date
+            <input type="radio" name="decision" value="year" onclick="toggleInputBox('year')"> Year
+            <input type="radio" name="decision" value="range" onclick="toggleInputBox('range')"> Range
+
+            <input type="date" class="form-control" name="date" id="dateInput" placeholder="Date Of Decision" style="display: block;">
+            <input type="number" class="form-control" name="year" id="yearInput" placeholder="Year Of Decision" style="display: none;">
+            <input type="number" class="form-control" style="display: none;" placeholder="Shows cases for last (5) years" id="last_year" name="last_year">
+
+            <label for="InputEmail">Case Type</label>
+            <select name="type" id="InputJob" class="form-control" >
+              <option value="" selected="False" name="parameter" style="display: none">Select Case Type </option> 
+              <option value="" name="parameter" >All</option>
+              <option value="civil" name="parameter" >Civil</option>
+              <option value="criminal" name="parameter" >Criminal</option>
+              
+            </select>
+            <label for="InputEmail">Decision</label>
+            <select name="decision" id="InputJob" class="form-control" >
+              <option value="" selected="False" name="parameter" style="display: none">Select Decision</option> 
+              <option value="" name="parameter" >All</option>
+              <option value="Accepted" name="parameter" >Accepted</option>
+              <option value="Rejected" name="parameter" >Rejected</option>
+              
+            </select>
+            {% comment %} <input type="text" class="form-control" name="cPassword" id="password2" placeholder="Bench" > {% endcomment %}
+            <span id="message"></span>
+          </div>
+        </div>
+          
+          <button type="submit" class="btn btn-primary" onclick="Search()">Submit</button>
+          {% comment %} <div class=""><br>
+            Already have an account? <a href="{% url 'login' %}">Login here</a>
+          </div> {% endcomment %}
+          {% comment %} <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div> {% endcomment %}
+          <button type="reset" class="btn btn-primary" value="Reset">Reset</button>
+        </form>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Kanoon Sarathi</h3>
+      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Kanoon Sarathi</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Kanoon Sarathi-bootstrap-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../static/assets/vendor/aos/aos.js"></script>
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../static/assets/js/main.js"></script>
+  <script>
+    function toggleInputBox(option) {
+      var dateInput = document.getElementById("dateInput");
+      var yearInput = document.getElementById("yearInput");
+      var last_year = document.getElementById("last_year");
+  
+      if (option === "date") {
+        dateInput.style.display = "block";
+        yearInput.style.display = "none";
+        last_year.style.display = "none";
+      } else if (option === "year") {
+        dateInput.style.display = "none";
+        yearInput.style.display = "block";
+        last_year.style.display = "none";
+
+      }
+      else{
+        dateInput.style.display = "none";
+        yearInput.style.display = "none";
+        last_year.style.display = "block";
+      }
+    }
+  </script>
+  <script>
+    document.getElementById("myForm").addEventListener("reset", function(event) {
+      event.preventDefault();
+  
+      // Reset the form fields
+      document.getElementById("myForm").reset();
+    });
+  </script>
+  <script>
+    function toggleInputBox(inputType) {
+      var dateInput = document.getElementById('dateInput');
+      var yearInput = document.getElementById('yearInput');
+      var lastYearInput = document.getElementById('last_year');
+
+      if (inputType === 'date') {
+        dateInput.style.display = 'block';
+        yearInput.style.display = 'none';
+        lastYearInput.style.display = 'none';
+        yearInput.value = '';
+        lastYearInput.value = '';
+      } else if (inputType === 'year') {
+        dateInput.style.display = 'none';
+        yearInput.style.display = 'block';
+        lastYearInput.style.display = 'none';
+        dateInput.value = '';
+        lastYearInput.value = '';
+      } else if (inputType === 'range') {
+        dateInput.style.display = 'none';
+        yearInput.style.display = 'none';
+        lastYearInput.style.display = 'block';
+        dateInput.value = '';
+        yearInput.value = '';
+      }
+    }
+  </script>
+</body>
+
+</html>
