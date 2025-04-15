@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Kanoon Sarathi</title>
+  <title>Kanoon Sarthi</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -64,7 +64,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="{% url 'login' %}">Home</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'home' %}">Home</a></li>
           <li><a class="nav-link scrollto active" href="{% url 'about' %}">About</a></li>
           {% comment %} <li><a class="nav-link scrollto" href="{% url 'blog' %}">Services</a></li> {% endcomment %}
           <li><a class="nav-link scrollto " href="{% url 'blog' %}">Legal Research</a></li>
@@ -87,7 +87,9 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li> {% endcomment %}
-          <li><a class="nav-link scrollto" href="#contact">Login</a></li>
+
+
+          {% comment %} <li><a class="nav-link scrollto" href="#contact">Login</a></li> {% endcomment %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -98,19 +100,19 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <section class="breadcrumbs">
+    {% comment %} <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
           <h2>About</h2>
           <ol>
-            <li><a href="{% url 'login' %}">Home</a></li>
-            <li>About</li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</li>
           </ol>
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs -->
+    </section><!-- End Breadcrumbs --> {% endcomment %}
 
     
       
@@ -126,7 +128,7 @@
 
         <div class="row content" data-aos="fade-up">
           <p>
-            Kanoon Sarathi is a transformative portal for the Indian Judicial System, aiming to revolutionize the legal landscape by harnessing technology and artificial intelligence (AI) to enhance accessibility, efficiency, and understanding. Our vision is to create a comprehensive and user-friendly platform that empowers judges, lawyers, litigants, and the general public with easy access to legal information and services. By bridging the gap between the legal system and the digital world, Kanoon Sarathi promotes legal literacy and fosters a more inclusive and transparent justice system. The platform offers cutting-edge features such as a multilingual interface, document structuring, simplified language, search functionality, virtual court integration, and online consultations. The platform values stakeholder engagement and provides resources and assistance to ensure seamless adoption and utilization by judges, lawyers, legal researchers, and the general public.
+            Kanoon Sarthi is an AI-powered legal search system designed to revolutionize legal research and case analysis. Built with advanced natural language processing (NLP) and machine learning techniques, the system enables users to find specific legal cases, discover advanced case combinations based on multiple legal features, and predict potential legal outcomes. Kanoon Sarthi goes beyond traditional keyword-based search by offering intelligent recommendations of similar cases, contextual legal insights, and predictive analysis, making it an invaluable companion for lawyers, judges, law students, and researchers. By automating and enhancing the legal search process, Kanoon Sarthi aims to improve the speed, accuracy, and efficiency of legal decision-making.  
           </p>
         </div>
 
