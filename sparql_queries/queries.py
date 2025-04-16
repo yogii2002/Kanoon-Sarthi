@@ -6,8 +6,10 @@ import re
 class get_data:
    
    def __init__(self):
-        self.sparql = SPARQLWrapper('http://localhost:3030/test_kg/sparql')
-        print("hello")
+      #   self.sparql = SPARQLWrapper('http://localhost:3030/test_kg/sparql')
+      #   print("hello")
+      self.sparql = SPARQLWrapper('https://fusekiserver-production.up.railway.app/test_kg/sparql')
+      print("hello")
 
    def case_id(self):       
       query="""      
