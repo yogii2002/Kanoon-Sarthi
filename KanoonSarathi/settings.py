@@ -145,3 +145,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # LOGIN_URL = '/accounts/login/'
 # SIGNUP_URL='/accounts/signup/'
+
+
+
+# production karne ke bad csrf token ki setting karni hai
+CSRF_TRUSTED_ORIGINS = ['https://web-production-3add.up.railway.app/']
