@@ -1,0 +1,72 @@
+name: 🚀 Auto‑Deploy AI Model to HF Space
+
+# जब main ब्रांच में push हो
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-model:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1) Code checkout
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v3
+
+    # 2) Python install (3.9)
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    # 3) Cache pip dependencies for speed
+    - name: ⚡ Cache pip
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements_model.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    # 4) Install only model-specific dependencies
+    - name: 📦 Install model deps
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements_model.txt
+        pip install huggingface_hub git-lfs
+
+    # 5) Git user configure for commits
+    - name: 🛠️ Configure Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    # 6) Login to Hugging Face Hub
+    - name: 🔐 HF Login
+      env:
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      run: |
+        echo $HF_TOKEN | huggingface-cli login --token
+
+    # 7) Clone your HF Space repo
+    - name: 📂 Clone HF Space repo
+      run: |
+        git lfs install
+        huggingface-cli repo clone ${{ secrets.HF_REPO }} space_repo --branch main
+
+    # 8) Copy model files into the Space folder
+    - name: 📋 Copy model code to Space
+      run: |
+        cp model.py space_repo/
+        # अगर तेरे पास कोई app.py या inference script है तो उसे भी कॉपी कर:
+        # cp app.py space_repo/
+        cp requirements_model.txt space_repo/
+
+    # 9) Commit & Push changes
+    - name: 🏷️ Commit & Push to HF Space
+      run: |
+        cd space_repo
+        git add .
+        git commit -m "Auto‑deploy: updated model & deps" || echo "No changes to commit"
+        git push
