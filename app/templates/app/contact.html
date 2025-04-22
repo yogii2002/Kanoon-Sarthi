@@ -57,6 +57,7 @@
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
+                     {% csrf_token %}
                      <div class="login_bt">
                         <ul>
                            <li><a href="#"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
@@ -82,6 +83,7 @@
                   <div class="col-md-12">
                      <div class="mail_section map_form_container">
                         <form action="">
+                           {% csrf_token %}
                         <input type="text" class="mail_text" placeholder="Name" name="Name">
                         <input type="text" class="mail_text" placeholder="Phone Number" name="Phone Number"> 
                         <input type="text" class="mail_text" placeholder="Your Email" name="Your Email">

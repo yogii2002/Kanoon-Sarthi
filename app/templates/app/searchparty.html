@@ -249,7 +249,7 @@
 
     <section class="">
       <div class="container">
-        <form action="" method="POST">
+        <form action="{% url 'search-party' %}" method="POST">
           {% csrf_token %}
        {% comment %} <input type="text" style="ul {
          list-style-type: none;
