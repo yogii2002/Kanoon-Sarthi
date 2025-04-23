@@ -5,6 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="csrf-token" content="{{ csrf_token }}">
 
   <title>Search by Party - Kanoon Sarathi Bootstrap Template</title>
   <meta content="" name="description">
@@ -268,7 +269,7 @@
   <div class="search-container">
   <div id="text-box" style="display: none;">
     <input type="text" id="searchpetitioner" placeholder="Enter Petitioner Name" name="petitioner">
-      <button onclick="search()">Search</button>
+      <button  onclick="search()">Search</button>
       
   </div>
   
@@ -276,7 +277,7 @@
     
     <input type="text" id="searchrespondent" placeholder="Enter Respondent Name" name="respondent">
         {% comment %} <input class="btn btn-primary" id="upload" type="submit" name="submit" value="submit"> {% endcomment %}
-        <button onclick="search()">Search</button>
+        <button  onclick="search()">Search</button>
         
   </div>
   <div class="results-container" id="suggestion-dropdown"></div>
@@ -452,6 +453,7 @@
 {% comment %} function for res, pet suggestionbox combinbed {% endcomment %}
 <script>
   // Common code for both search inputs
+  const csrftoken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   const petitionerSearchInput = document.getElementById('searchpetitioner');
   const respondentSearchInput = document.getElementById('searchrespondent');
   const suggestionDropdown = document.getElementById('suggestion-dropdown');
@@ -470,7 +472,13 @@
     const query = inputElement.value.toLowerCase();
     if (query.trim() !== '') {
       const endpoint = `/search/suggestions/${searchType}/?query=${encodeURIComponent(query)}`;
-      fetch(endpoint)
+      fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'X-CSRFToken': csrftoken,       // CSRF token header
+        },
+        credentials: 'same-origin'         // cookie bhi chahiye
+      })
         .then(response => response.json())
         .then(data => {
           suggestionDropdown.innerHTML = '';
