@@ -6,6 +6,8 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   
+  <meta name="csrf-token" content="{{ csrf_token }}">
+
 
   <title>Search by Party - Kanoon Sarathi Bootstrap Template</title>
   <meta content="" name="description">
@@ -356,7 +358,7 @@
   <script src="../static/assets/js/main.js"></script>
 
 </body>
-{% comment %} <script src="{% static 'js/search.js' %}"></script> {% endcomment %}
+<script src="{% static 'js/search.js' %}"></script>
 
 
 {% comment %} function for res, pet suggestionbox {% endcomment %}
@@ -468,7 +470,7 @@
       }
       return cookieValue;
   }
-  const csrftoken = getCookie('csrftoken');
+  
 
   const petitionerSearchInput = document.getElementById('searchpetitioner');
   const respondentSearchInput = document.getElementById('searchrespondent');
@@ -486,6 +488,7 @@
   // Function to handle input event for both search inputs
   function handleInputEvent(inputElement, searchType) {
     const query = inputElement.value.toLowerCase();
+    const csrftoken = getCookie('csrftoken');
     if (query.trim() !== '') {
       const endpoint = `/search/suggestions/${searchType}/?query=${encodeURIComponent(query)}`;
       fetch(endpoint, {
