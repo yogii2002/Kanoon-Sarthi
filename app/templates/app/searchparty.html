@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta name="csrf-token" content="{{ csrf_token }}">
+  
 
   <title>Search by Party - Kanoon Sarathi Bootstrap Template</title>
   <meta content="" name="description">
@@ -356,7 +356,7 @@
   <script src="../static/assets/js/main.js"></script>
 
 </body>
-<script src="{% static 'js/search.js' %}"></script>
+{% comment %} <script src="{% static 'js/search.js' %}"></script> {% endcomment %}
 
 
 {% comment %} function for res, pet suggestionbox {% endcomment %}
@@ -453,7 +453,23 @@
 {% comment %} function for res, pet suggestionbox combinbed {% endcomment %}
 <script>
   // Common code for both search inputs
-  const csrftoken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let cookie of cookies) {
+              cookie = cookie.trim();
+              // Does this cookie start with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
+
   const petitionerSearchInput = document.getElementById('searchpetitioner');
   const respondentSearchInput = document.getElementById('searchrespondent');
   const suggestionDropdown = document.getElementById('suggestion-dropdown');
