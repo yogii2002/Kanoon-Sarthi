@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   
-  <meta name="csrf-token" content="{{ csrf_token }}">
+  
 
 
   <title>Search by Party - Kanoon Sarathi Bootstrap Template</title>
@@ -253,7 +253,7 @@
     <section class="">
       <div class="container">
         <form action="{% url 'search-party' %}" method="POST">
-          {% csrf_token %}
+         
        {% comment %} <input type="text" style="ul {
          list-style-type: none;
          padding: 0;
@@ -455,22 +455,7 @@
 {% comment %} function for res, pet suggestionbox combinbed {% endcomment %}
 <script>
   // Common code for both search inputs
-    function getCookie(name) {
-      let cookieValue = null;
-      if (document.cookie && document.cookie !== '') {
-          const cookies = document.cookie.split(';');
-          for (let cookie of cookies) {
-              cookie = cookie.trim();
-              // Does this cookie start with the name we want?
-              if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                  break;
-              }
-          }
-      }
-      return cookieValue;
-  }
-  
+   
 
   const petitionerSearchInput = document.getElementById('searchpetitioner');
   const respondentSearchInput = document.getElementById('searchrespondent');
@@ -488,16 +473,10 @@
   // Function to handle input event for both search inputs
   function handleInputEvent(inputElement, searchType) {
     const query = inputElement.value.toLowerCase();
-    const csrftoken = getCookie('csrftoken');
+    
     if (query.trim() !== '') {
       const endpoint = `/search/suggestions/${searchType}/?query=${encodeURIComponent(query)}`;
-      fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'X-CSRFToken': csrftoken,       // CSRF token header
-        },
-        credentials: 'same-origin'         // cookie bhi chahiye
-      })
+      fetch(endpoint)
         .then(response => response.json())
         .then(data => {
           suggestionDropdown.innerHTML = '';

@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure--l61*#ky4===@)p3tr2#w3^(s%ltbg%qjy%-39s78$5t=^&cu^
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG=False
+DEBUG=True
 
 ALLOWED_HOSTS = ['*']
 
@@ -50,7 +50,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -140,10 +139,10 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 
 
 # production karne ke bad csrf token ki setting karni hai
-CSRF_TRUSTED_ORIGINS = ['https://web-production-3add.up.railway.app/']
+# CSRF_TRUSTED_ORIGINS = ['https://web-production-3add.up.railway.app/']

@@ -190,7 +190,7 @@
     <section class="">
       <div class="container">
         <form action="" method="POST">
-          {% csrf_token %}
+          
        
       <div class="search-container">
         <input type="text" name="judgename" id="search-input" placeholder="Enter Judge Name">
@@ -339,7 +339,7 @@
   <!-- Template Main JS File -->
   <script src="../static/assets/js/main.js"></script>
 </body>
-<script src="{% static 'js/search.js' %}"></script>
+{% comment %} <script src="{% static 'js/search.js' %}"></script> {% endcomment %}
 
 <script>
   function filterResults() {

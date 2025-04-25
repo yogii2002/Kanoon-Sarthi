@@ -176,7 +176,7 @@
     <section class="">
       <div class="container">
         <form action="" method="POST">
-          {% csrf_token %}
+         
        {% comment %} <input type="text" style="ul {
          list-style-type: none;
          padding: 0;
@@ -269,7 +269,7 @@
   <script src="../static/assets/js/main.js"></script>
 
 </body>
-<script src="{% static 'js/search.js' %}"></script>
+{% comment %} <script src="{% static 'js/search.js' %}"></script> {% endcomment %}
 {% comment %} <script>
   const searchInput = document.getElementById('search-input');
   const suggestionBox = document.getElementById('suggestion-box');
